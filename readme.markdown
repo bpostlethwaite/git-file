@@ -2,6 +2,8 @@
 
 read file and directory data from a git repo as streams
 
+[![build status](https://secure.travis-ci.org/substack/git-file.png)](http://travis-ci.org/substack/git-file)
+
 # example
 
 ## stream a directory listing
