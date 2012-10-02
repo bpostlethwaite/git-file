@@ -1,6 +1,7 @@
 var spawn = require('child_process').spawn;
 var through = require('through');
 var split = require('event-stream').split;
+var run = require('comandante');
 
 exports = module.exports = function (ref) {
     return {
@@ -14,18 +15,7 @@ exports.read = readFile;
 
 function show (ref, file) {
     if (file === '.') file = './';
-    
-    var ps = spawn('git', [ 'show', ref + ':' + file ]);
-    var err = '';
-    ps.stderr.on('data', function (buf) { err += buf });
-    
-    ps.on('exit', function (code) {
-        if (code === 0) return;
-        tr.emit('error', 'non-zero exit code ' + code + ': ' + err);
-    });
-    
-    var tr = ps.stdout.pipe(through());
-    return tr;
+    return run('git', [ 'show', ref + ':' + file ]);
 }
 
 function readFile (ref, file) {
