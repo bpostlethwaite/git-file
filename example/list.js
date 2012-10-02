@@ -1,10 +1,10 @@
-var gitFile = require('../');
+var git = require('../');
 var joinStream = require('join-stream');
 
 var commit = process.argv[2];
 var dir = process.argv[3];
 
-gitFile.list(commit, dir)
+git.list(commit, dir)
     .pipe(joinStream('\n'))
     .pipe(process.stdout)
 ;
