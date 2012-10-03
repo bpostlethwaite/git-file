@@ -39,7 +39,7 @@ git.read(commit, file).pipe(process.stdout);
 var git = require('git-file')
 ```
 
-## git.list(ref, dir)
+## git.list(ref, dir, opts)
 
 List the contents of a directory `dir` at the
 [revision](http://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html)
@@ -48,11 +48,16 @@ List the contents of a directory `dir` at the
 Returns a stream with a `'data'` event for each file where directories have a
 trailing `'/'`.
 
-## git.read(ref, file)
+## git.read(ref, file, opts)
 
 Return a stream with the contents of `file` at the
 [revision](http://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html)
 `ref`.
+
+## git(ref, opts)
+
+Return an object with `list` and `read` bound to the `ref` and/or `opts`
+provided.
 
 # install
 

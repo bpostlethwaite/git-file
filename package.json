@@ -1,6 +1,6 @@
 {
     "name" : "git-file",
-    "version" : "0.0.0",
+    "version" : "0.0.1",
     "description" : "read file and directory data from a git repo as streams",
     "main" : "index.js",
     "directories" : {
